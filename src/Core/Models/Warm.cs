@@ -2,10 +2,16 @@ public class Warm : BaseEntity
 {
   public int Time { get; set; }
   public int Power { get; set; }
+  public string? WarmSymbol { get; set; }
 
-  public static implicit operator Warm(WarmDTO dto) => new()
+  public Warm(int time, int power) => (Time, Power) = (time, power);
+
+  public static implicit operator Warm(WarmDTO dto) => new(
+    dto.Power!.Value, dto.Time!.Value
+  );
+
+  public static implicit operator Warm(Preset preset) => new(preset.Time, preset.Power)
   {
-    Power = dto.Power!.Value,
-    Time = dto.Time!.Value,
+    WarmSymbol = preset.WarmSymbol
   };
 }
