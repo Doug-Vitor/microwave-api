@@ -1,4 +1,10 @@
-var builder = WebApplication.CreateBuilder(args);
-var app = builder.Build();
+DotNetEnv.Env.Load("../../.env");
 
+var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddControllers();
+builder.Services.AddInfrastructureServices();
+
+var app = builder.Build();
+app.MapControllers();
 app.Run();
