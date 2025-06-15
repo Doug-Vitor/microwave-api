@@ -225,12 +225,14 @@ namespace Infra.Configurations.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
+                    b.Property<bool>("Custom")
+                        .HasColumnType("boolean");
+
                     b.Property<string>("Food")
                         .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("Instructions")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("Name")

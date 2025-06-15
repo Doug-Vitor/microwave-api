@@ -11,8 +11,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Infra.Configurations.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20250614214605_AddingPresets")]
-    partial class AddingPresets
+    [Migration("20250615170709_AddingCustomColumnToPresets")]
+    partial class AddingCustomColumnToPresets
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -228,12 +228,14 @@ namespace Infra.Configurations.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
+                    b.Property<bool>("Custom")
+                        .HasColumnType("boolean");
+
                     b.Property<string>("Food")
                         .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("Instructions")
-                        .IsRequired(false)
                         .HasColumnType("text");
 
                     b.Property<string>("Name")
