@@ -1,0 +1,1 @@
+public interface IPresetServices : IWritableRepository<Preset>;

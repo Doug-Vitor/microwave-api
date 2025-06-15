@@ -8,14 +8,14 @@ public class WritableRepository<T> : IWritableRepository<T> where T : BaseEntity
   public WritableRepository(AppDbContext dbContext)
     => (Context, Collection) = (dbContext, dbContext.Set<T>());
 
-  public async Task<T> InsertAsync(T entity)
+  public virtual async Task<T> InsertAsync(T entity)
   {
     await Collection.AddAsync(entity);
     await Context.SaveChangesAsync();
     return entity;
   }
 
-  public async Task<T> UpdateAsync(int id, T entity)
+  public virtual async Task<T> UpdateAsync(int id, T entity)
   {
     entity.Id = id;
     Context.Entry(entity).CurrentValues.SetValues(entity);
