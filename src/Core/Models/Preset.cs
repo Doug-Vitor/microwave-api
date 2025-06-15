@@ -6,6 +6,7 @@ public class Preset : BaseEntity
   public int Power { get; set; }
   public string Instructions { get; set; }
   public string WarmSymbol { get; set; }
+  public bool Custom { get; set; }
 
   public static implicit operator Preset(PresetDTO dto) => new()
   {
@@ -14,6 +15,7 @@ public class Preset : BaseEntity
     Name = dto.Name!,
     Power = dto.Power.Value,
     Time = dto.Time.Value,
-    WarmSymbol = dto.WarmSymbol!
+    WarmSymbol = dto.WarmSymbol!,
+    Custom = true
   };
 }
