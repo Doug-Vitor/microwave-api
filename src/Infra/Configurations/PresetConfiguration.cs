@@ -6,6 +6,7 @@ internal class PresetConfiguration : IEntityTypeConfiguration<Preset>
 {
   public void Configure(EntityTypeBuilder<Preset> builder)
   {
-    builder.HasKey(prop => prop.Id);
+    builder.HasKey(p => p.Id);
+    builder.Property(p => p.Instructions).IsRequired(false);
   }
 }

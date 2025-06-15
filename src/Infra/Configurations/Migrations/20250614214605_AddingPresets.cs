@@ -27,7 +27,7 @@ namespace Infra.Configurations.Migrations
                     Food = table.Column<string>(type: "text", nullable: false),
                     Time = table.Column<int>(type: "integer", nullable: false),
                     Power = table.Column<int>(type: "integer", nullable: false),
-                    Instructions = table.Column<string>(type: "text", nullable: false),
+                    Instructions = table.Column<string>(type: "text", nullable: true),
                     WarmSymbol = table.Column<string>(type: "text", nullable: false)
                 },
                 constraints: table =>

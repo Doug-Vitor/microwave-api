@@ -230,7 +230,7 @@ namespace Infra.Configurations.Migrations
                         .HasColumnType("text");
 
                     b.Property<string>("Instructions")
-                        .IsRequired()
+                        .IsRequired(false)
                         .HasColumnType("text");
 
                     b.Property<string>("Name")
