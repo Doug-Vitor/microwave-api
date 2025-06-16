@@ -6,7 +6,7 @@ internal static class DefaultConfiguration
   internal static WebApplication UseDefaultConfigurations(this WebApplication app)
   {
     app.MapControllers();
-    app.UseCors(app.Environment.IsProduction() ? "" : Constants.LocalCors).UseAuthentication();
+    app.UseMiddlewares().UseCors(app.Environment.IsProduction() ? "" : Constants.LocalCors).UseAuthentication();
     return app;
   }
 }

@@ -10,7 +10,7 @@ internal static class ApiBehaviurConfiguration
   static IServiceCollection ConfigureCors(this IServiceCollection services)
   {
     services.AddCors(options =>
-      options.AddPolicy(Constants.LocalCors, policy => policy.WithOrigins("*"))
+      options.AddPolicy(Constants.LocalCors, policy => policy.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader())
     );
 
     return services;
