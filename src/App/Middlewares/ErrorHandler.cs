@@ -6,6 +6,10 @@ public class ErrorHandlerMiddleware
 
   private static readonly Dictionary<Type, ErrorResponseDTO> SupportedExceptions = new()
   {
+    {
+      typeof(DuplicatedSymbolException),
+      new((int)HttpStatusCode.UnprocessableEntity, DuplicatedSymbolException.Message)
+    }
   };
 
   public ErrorHandlerMiddleware(RequestDelegate next) => _next = next;
