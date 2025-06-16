@@ -20,6 +20,6 @@ public class PresetServices(AppDbContext dbContext) : WritableRepository<Preset>
       preset => preset.WarmSymbol.Equals(symbol)
     );
 
-    if (symbolExists) throw new Exception("");
+    if (symbolExists) throw new DuplicatedSymbolException();
   }
 }
